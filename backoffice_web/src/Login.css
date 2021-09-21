@@ -1,28 +1,28 @@
 form {
     display: flex;
     flex-flow: column;
-    row-gap: 20px;
+    row-gap: 2vh;
 }
 
 .Login {
     display: flex;
     flex-flow: column;
-    row-gap: 80px;
+    row-gap: 7vh;
     position: relative;
-    top: -150px;
+    top: -20vh;
 }
 
 .EmailLogin, .PasswordLogin {
     display: flex;
-    column-gap: 10px;
+    column-gap: 1%;
 }
 
 input {
     border-width: 1px 1px;
     border-color: grey;
     border-radius: 8px;
-    height: 30px;
-    width: 250px;
+    height: auto;
+    width: 40%;
     position: relative;
 }
 
@@ -33,20 +33,20 @@ label {
 
 .EmailLogin > label {
     position: relative;
-    left: 90px;
+    left: 14.6%;
 }
 
 .PasswordLogin > label {
     position: relative;
-    left: 39px;
+    left: 6%;
 }
 
 .EmailLogin > input {
-    left: 100px;
+    left: 16.6%
 }
 
 .PasswordLogin > input {
-    left: 48px;
+    left: 7.8%;
 }
 
 /* This enables the bluish outline that you 
