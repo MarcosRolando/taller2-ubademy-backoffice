@@ -1,0 +1,57 @@
+form {
+    display: flex;
+    flex-flow: column;
+    row-gap: 20px;
+}
+
+.Login {
+    display: flex;
+    flex-flow: column;
+    row-gap: 80px;
+    position: relative;
+    top: -150px;
+}
+
+.EmailLogin, .PasswordLogin {
+    display: flex;
+    column-gap: 10px;
+}
+
+input {
+    border-width: 1px 1px;
+    border-color: grey;
+    border-radius: 8px;
+    height: 30px;
+    width: 250px;
+    position: relative;
+}
+
+label {
+    color: #448cdd;
+    font-weight: bold;
+}
+
+.EmailLogin > label {
+    position: relative;
+    left: 90px;
+}
+
+.PasswordLogin > label {
+    position: relative;
+    left: 39px;
+}
+
+.EmailLogin > input {
+    left: 100px;
+}
+
+.PasswordLogin > input {
+    left: 48px;
+}
+
+/* This enables the bluish outline that you 
+see when you click on the input*/
+input:focus {
+    box-shadow: 0 0 0 3px rgb(64, 147, 241);    
+    outline: none;
+}
