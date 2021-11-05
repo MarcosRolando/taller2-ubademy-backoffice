@@ -1,0 +1,6 @@
+.LoginCredentials {
+  display: flex;
+  flex-direction: column;
+  height: 7em;
+  justify-content: space-around;
+}
