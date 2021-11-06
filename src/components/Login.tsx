@@ -5,9 +5,9 @@ import logo from '../ubademy-logo.png';
 import sendLoginCredentials from "../scripts/logIn";
 
 export default function Login() {
-  const [email, setEmail] = React.useState({
+  const [username, setUsername] = React.useState({
     value: '',
-    placeholder: 'Email',
+    placeholder: 'Username',
     style: {},
   });
   const [password, setPassword] = React.useState({
@@ -15,11 +15,12 @@ export default function Login() {
     placeholder: 'Password',
     style: {},
   });
+  const [errorMessage, setErrorMessage] = React.useState('');
 
   function sendCredentials() {
-    if (!email.value.trim()) {
-      setEmail({...email, 
-        placeholder:'Please enter your email',
+    if (!username.value.trim()) {
+      setUsername({...username, 
+        placeholder:'Please enter your username',
         style:{color:'#CF6679'}
       });
       return;
@@ -31,7 +32,7 @@ export default function Login() {
       });
       return;
     }
-    sendLoginCredentials(email.value, password.value);
+    sendLoginCredentials(username.value, password.value, setErrorMessage);
   }
 
   return (
@@ -39,19 +40,23 @@ export default function Login() {
       <img src={logo} alt='ubademy-logo' style={{paddingBottom:20}}/>
       <div className='LoginCredentials'>
         <Input 
-          placeholder={email.placeholder}
-          type='email'
-          value={email.value}
-          style={email.style}
-          onChange={(e) => setEmail({...email, value:e.target.value, style:{}})}
+          placeholder={username.placeholder}
+          type='username'
+          value={username.value}
+          style={username.style}
+          onChange={(e) => setUsername({...username, value:e.target.value, style:{}})}
         />
         <Input 
           placeholder={password.placeholder}
           type='password'
           value={password.value}
-          style={password.style}
+          style={{...password.style, paddingTop:'1em'}}
           onChange={(e) => setPassword({...password, value:e.target.value, style:{}})}
         />
+        <p 
+          style={{margin:0, padding:'0.7em', color: '#CF6679', fontSize:'0.7em'}}>
+          {errorMessage}
+          </p>
         <Button onClick={sendCredentials}>
           Login
         </Button>
