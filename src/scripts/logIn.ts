@@ -4,9 +4,12 @@ import { ADMIN_LOGIN } from "../endpoints";
 
 export default async function sendLoginCredentials(username: string, password: string) {
   try {
-    let res = await axios.post(`${API_URL}${ADMIN_LOGIN}`, {name:username, password:password});
-    if (res.data['detail'] === 'error_bad_login') {
-      return Promise.reject('Invalid username or password');
+    let res = await axios.post(`${API_URL}${ADMIN_LOGIN}`, {username:username, password:password});
+    if (res.data['status'] === 'error') {
+      switch (res.data['message']) {
+        case 'error_bad_login':
+          return Promise.reject('Invalid username or password');
+      }
     }
     return Promise.resolve('');
   } catch(error) {
