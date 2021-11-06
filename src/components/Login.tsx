@@ -3,8 +3,13 @@ import React from "react";
 import '../css/Login.css';
 import logo from '../ubademy-logo.png';
 import sendLoginCredentials from "../scripts/logIn";
+import { useNavigate } from "react-router";
+import { PROFILE_ROUTE } from "../route_paths";
+import colors from "../colors";
 
 export default function Login() {
+  let navigate = useNavigate();
+
   const [username, setUsername] = React.useState({
     value: '',
     placeholder: 'Username',
@@ -17,25 +22,32 @@ export default function Login() {
   });
   const [message, setMessage] = React.useState({
     value:'',
-    style:{color:'#CF6679'},
+    style:{color:colors.error},
   });
 
   function sendCredentials() {
     if (!username.value.trim()) {
       setUsername({...username, 
         placeholder:'Please enter your username',
-        style:{color:'#CF6679'}
+        style:{color:colors.error}
       });
       return;
     }
     if (!password.value.trim()) {
       setPassword({...password, 
         placeholder:'Please enter your password',
-        style:{color:'#CF6679'}
+        style:{color:colors.error}
       });
       return;
     }
-    sendLoginCredentials(username.value, password.value, message, setMessage);
+    sendLoginCredentials(username.value, password.value)
+      .then(() => {
+        setMessage({...message, value:'Logging in...'});
+        navigate(PROFILE_ROUTE);
+      },
+      (errorMsg) => {
+        setMessage({...message, value:errorMsg});
+      });
   }
 
   return (
@@ -57,7 +69,7 @@ export default function Login() {
           onChange={(e) => setPassword({...password, value:e.target.value, style:{}})}
         />
         <p 
-          style={{margin:0, padding:'0.7em', color: '#CF6679', fontSize:'0.7em'}}>
+          style={{margin:0, padding:'0.7em', color: colors.error, fontSize:'0.7em'}}>
           {message.value}
           </p>
         <Button onClick={sendCredentials}>
