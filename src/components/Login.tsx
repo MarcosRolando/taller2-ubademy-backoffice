@@ -15,7 +15,10 @@ export default function Login() {
     placeholder: 'Password',
     style: {},
   });
-  const [errorMessage, setErrorMessage] = React.useState('');
+  const [message, setMessage] = React.useState({
+    value:'',
+    style:{color:'#CF6679'},
+  });
 
   function sendCredentials() {
     if (!username.value.trim()) {
@@ -32,7 +35,7 @@ export default function Login() {
       });
       return;
     }
-    sendLoginCredentials(username.value, password.value, setErrorMessage);
+    sendLoginCredentials(username.value, password.value, message, setMessage);
   }
 
   return (
@@ -55,7 +58,7 @@ export default function Login() {
         />
         <p 
           style={{margin:0, padding:'0.7em', color: '#CF6679', fontSize:'0.7em'}}>
-          {errorMessage}
+          {message.value}
           </p>
         <Button onClick={sendCredentials}>
           Login
