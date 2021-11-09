@@ -1,0 +1,14 @@
+.Register {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  width: 30%;
+}
+
+.RegisterCredentials {
+  display: flex;
+  flex-direction: column;
+  height: 7em;
+  justify-content: space-around;
+}

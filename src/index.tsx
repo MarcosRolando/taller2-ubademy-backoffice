@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/index.css';
-import App from './components/App';
+import './styles/index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -29,9 +29,9 @@ const darkTheme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={darkTheme}>
-      <BrowserRouter>
+      <Router>
         <App />
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

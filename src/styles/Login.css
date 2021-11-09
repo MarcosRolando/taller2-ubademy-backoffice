@@ -1,0 +1,19 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  width: 30%;
+}
+
+.Logo {
+  max-height: 100%;
+  padding-bottom: 20;
+}
+
+.LoginCredentials {
+  display: flex;
+  flex-direction: column;
+  height: 7em;
+  justify-content: space-around;
+}
