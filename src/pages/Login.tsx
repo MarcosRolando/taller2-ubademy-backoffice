@@ -7,7 +7,6 @@ import { useNavigate } from "react-router";
 import { PROFILE_ROUTE } from "../routePaths";
 import colors from "../colors";
 import '../styles/Login.css';
-import MaterialDrawer from "../components/Drawer";
 
 export default function Login() {
   let navigate = useNavigate();
@@ -54,7 +53,6 @@ export default function Login() {
 
   return (
     <div className='Login'>
-      <MaterialDrawer />
       <div style={{display: 'flex', alignSelf:'center', marginBottom: '2em'}}>
         <img src={logo} alt='ubademy-logo' style={{resize:'both'}}/>
       </div>
@@ -74,7 +72,7 @@ export default function Login() {
           onChange={(e) => setPassword({...password, value:e.target.value, style:{}})}
         />
         <p 
-          style={{margin:0, padding:'0.7em', color: colors.error, fontSize:'0.7em'}}>
+          style={{display:'flex', alignSelf:'center', margin:0, padding:'0.7em', color: colors.error, fontSize:'0.7em'}}>
           {message.value}
           </p>
         <Button onClick={sendCredentials}>
