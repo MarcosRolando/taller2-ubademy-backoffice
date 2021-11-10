@@ -23,7 +23,7 @@ const Register = () => {
   });
   const [message, setMessage] = React.useState({
     value:'',
-    style:{color:colors.error},
+    style:{color:colors.error, fontSize:'0.7em'},
   });
 
   function sendCredentials() {
@@ -48,7 +48,7 @@ const Register = () => {
       setMessage({
         ...message,
         value: 'Passwords must match',
-        style:{color:colors.error}
+        style:{...message.style, color:colors.error}
       });
       return;
     }
@@ -56,15 +56,15 @@ const Register = () => {
       .then(() => {
         setMessage({
           ...message,
-          style: {color:'white'},
+          style: {...message.style, color:'white'},
           value: 'Register successful'
         });
       },
-      (errorMsg) => {
+      (errorMsg: Error) => {
         setMessage({
           ...message, 
-          value:errorMsg,
-           style:{color:colors.error},
+          value:errorMsg.message,
+          style:{...message.style, color:colors.error},
         });
       });
   }
@@ -95,7 +95,7 @@ const Register = () => {
           onChange={(e) => setConfPassword({...confPassword, value:e.target.value, style:{}})}
         />
         <p 
-          style={{margin:0, padding:'0.7em', color: colors.error, fontSize:'0.7em'}}>
+          style={{...message.style, display:'flex', alignSelf:'center', margin:0, padding:'0.7em'}}>
           {message.value}
           </p>
         <Button onClick={sendCredentials}>

@@ -1,4 +1,4 @@
-import { AccountCircle, PermContactCalendar } from "@material-ui/icons";
+import { AccountCircle, SupervisorAccount } from "@material-ui/icons";
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -24,7 +24,7 @@ const MaterialDrawer = () => {
       <Link className='Link' to={REGISTER_ROUTE}>
         <List>
           <ListItem button key='Register Admin'>
-            <ListItemIcon><PermContactCalendar/>
+            <ListItemIcon><SupervisorAccount/>
             </ListItemIcon>
             <ListItemText primary='Register an admin' />
           </ListItem>
