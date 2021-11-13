@@ -71,7 +71,6 @@ const Register = () => {
 
   return (
     <div style={{width:'30%'}} className='Register'>
-      <MaterialDrawer />
       <div className='RegisterCredentials'>
         <Input 
           placeholder={email.placeholder}
