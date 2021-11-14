@@ -95,7 +95,9 @@ const Register = () => {
           onChange={(e) => setConfPassword({...confPassword, value:e.target.value, style:{}})}
         />
         <p 
-          style={{...message.style, display:'flex', alignSelf:'center', margin:0, padding:'0.7em'}}>
+          style={{...message.style, display:'flex', 
+          alignSelf:'center', margin:0, fontSize: 14, 
+          padding:'0.7em'}}>
           {message.value}
           </p>
         <Button onClick={sendCredentials}>

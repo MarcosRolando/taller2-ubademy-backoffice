@@ -9,6 +9,6 @@
 .RegisterCredentials {
   display: flex;
   flex-direction: column;
-  height: 7em;
+  height: 20em;
   justify-content: space-around;
 }
