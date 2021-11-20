@@ -10,6 +10,6 @@ export const useGetUsers = () => {
       .catch((error: Error) => {
         console.log(error.message);
       })
-  })
+  }, [])
   return { users };
 }

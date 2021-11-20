@@ -1,1 +1,1 @@
-export { UserList } from './component';
+export { UserListContainer as UserList } from './container';
