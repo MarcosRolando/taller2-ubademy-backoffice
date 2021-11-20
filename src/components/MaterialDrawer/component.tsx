@@ -1,15 +1,20 @@
+import React from "react";
 import { AccountCircle, SupervisorAccount } from "@material-ui/icons";
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import React from "react";
 import { Link } from "react-router-dom";
-import { PROFILE_ROUTE, REGISTER_ROUTE, USERS_ROUTE } from "../routePaths";
-import logo from '../ubademy-logo.png';
-import '../styles/Drawer.css';
+import { PROFILE_ROUTE, REGISTER_ROUTE, USERS_ROUTE } from "../../routePaths";
+import logo from '../../ubademy-logo.png';
+import './styles.css';
 
-const MaterialDrawer = () => {
+export const MaterialDrawer = () => {
   return (
-    <div>
-      <Drawer variant='permanent' anchor='left'>
+    <div className='MaterialDrawer'>
+      <Drawer 
+        variant='permanent' anchor='left'
+        PaperProps={{
+          sx: { width: "15%" },
+        }}
+      >
         <div style={{display: 'flex', alignSelf:'center', margin: '1.5em 0 0.5em 0'}}>
           <img src={logo} alt='ubademy-logo' style={{display:'flex', alignSelf:'center', height:'80%'}}/>
         </div>
@@ -49,5 +54,3 @@ const MaterialDrawer = () => {
     </div>
   );
 }
-
-export default MaterialDrawer;

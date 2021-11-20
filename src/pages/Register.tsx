@@ -1,7 +1,7 @@
 import { Button, Input } from "@mui/material";
 import React from "react";
 import colors from "../colors";
-import MaterialDrawer from "../components/Drawer";
+import { MyWindow } from "../components/MyWindow";
 import sendRegisterCredentials from "../scripts/register";
 import '../styles/Register.css';
 
@@ -70,38 +70,40 @@ const Register = () => {
   }
 
   return (
-    <div style={{width:'30%'}} className='Register'>
-      <div className='RegisterCredentials'>
-        <Input 
-          placeholder={email.placeholder}
-          type='email'
-          value={email.value}
-          style={email.style}
-          onChange={(e) => setEmail({...email, value:e.target.value, style:{}})}
-        />
-        <Input 
-          placeholder={password.placeholder}
-          type='password'
-          value={password.value}
-          style={{...password.style, paddingTop:'1em'}}
-          onChange={(e) => setPassword({...password, value:e.target.value, style:{}})}
-        />
-        <Input 
-          placeholder={confPassword.placeholder}
-          type='password'
-          value={confPassword.value}
-          style={{...confPassword.style, paddingTop:'1em'}}
-          onChange={(e) => setConfPassword({...confPassword, value:e.target.value, style:{}})}
-        />
-        <p 
-          style={{...message.style, display:'flex', alignSelf:'center', margin:0, padding:'0.7em'}}>
-          {message.value}
-          </p>
-        <Button onClick={sendCredentials}>
-          Register
-        </Button>
+    <MyWindow>
+      <div className='Register'>
+        <div className='RegisterCredentials'>
+          <Input 
+            placeholder={email.placeholder}
+            type='email'
+            value={email.value}
+            style={email.style}
+            onChange={(e) => setEmail({...email, value:e.target.value, style:{}})}
+            />
+          <Input 
+            placeholder={password.placeholder}
+            type='password'
+            value={password.value}
+            style={{...password.style, paddingTop:'1em'}}
+            onChange={(e) => setPassword({...password, value:e.target.value, style:{}})}
+            />
+          <Input 
+            placeholder={confPassword.placeholder}
+            type='password'
+            value={confPassword.value}
+            style={{...confPassword.style, paddingTop:'1em'}}
+            onChange={(e) => setConfPassword({...confPassword, value:e.target.value, style:{}})}
+            />
+          <p 
+            style={{...message.style, display:'flex', alignSelf:'center', margin:0, padding:'0.7em'}}>
+            {message.value}
+            </p>
+          <Button onClick={sendCredentials}>
+            Register
+          </Button>
+        </div>
       </div>
-    </div>
+    </MyWindow>
   );
 }
 

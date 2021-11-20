@@ -1,0 +1,15 @@
+.MyWindow {
+  display: flex;
+  min-width: 100vw;
+}
+
+.Drawer {
+  display: flex;
+  min-width: 15%;
+}
+
+.Children {
+  display: flex;
+  justify-content: center;
+  min-width: 76%;
+}

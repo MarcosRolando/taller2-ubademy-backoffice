@@ -1,12 +1,14 @@
 import React from "react";
-import MaterialDrawer from "../components/Drawer";
+import { MyWindow } from "../components/MyWindow";
 import '../styles/Users.css';
 
 const Users = () => {
   return (
-    <div className='Users'>
-      <p>Hello, World!</p>
-    </div>
+    <MyWindow>
+      <div className='Users'>
+        <p>Hello, World!</p>
+      </div>
+    </MyWindow>
   );
 }
 
