@@ -1,11 +1,12 @@
 import React from "react";
-import MaterialDrawer from "../components/Drawer";
+import { MyWindow } from "../components/MyWindow";
 
 export default function Profile() {
   return (
-    <div>
-      <MaterialDrawer />
-      <p>Hello!</p>
-    </div>
+    <MyWindow>
+      <div>
+        <p>Hello!</p>
+      </div>
+    </MyWindow>
   );
 }

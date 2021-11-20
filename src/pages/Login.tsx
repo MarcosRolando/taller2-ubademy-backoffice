@@ -2,16 +2,15 @@ import { Button, Input } from "@mui/material";
 import React, { useEffect } from "react";
 import '../styles/Login.css';
 import logo from '../ubademy-logo.png';
-import sendLoginCredentials from "../scripts/logIn";
 import { useNavigate } from "react-router";
 import { PROFILE_ROUTE } from "../routePaths";
 import colors from "../colors";
 import '../styles/Login.css';
-import { setAccessToken } from "../apiWrapper";
-import { setUserCredentials } from "../userCredentials";
+import { useLogin } from "../hooks/useLogin";
 
 export default function Login() {
   let navigate = useNavigate();
+  const { login } = useLogin();
 
   const [username, setUsername] = React.useState({
     value: '',
@@ -48,13 +47,13 @@ export default function Login() {
       });
       return;
     }
-    sendLoginCredentials(username.value, password.value)
+    login(username.value, password.value)
       .then(() => {
         setMessage({...message, value:'Logging in...'});
         navigate(PROFILE_ROUTE);
       },
-      (errorMsg) => {
-        setMessage({...message, value:errorMsg});
+      (error: Error) => {
+        setMessage({...message, value:error.message});
       });
   }
 

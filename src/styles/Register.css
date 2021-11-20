@@ -1,14 +1,12 @@
 .Register {
   display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-self: center;
-  width: 30%;
+  max-height: 100%;
+  align-items: center;
 }
 
 .RegisterCredentials {
   display: flex;
   flex-direction: column;
-  height: 20em;
-  justify-content: space-around;
+  justify-content: space-between;
+  min-height: 30%;
 }
