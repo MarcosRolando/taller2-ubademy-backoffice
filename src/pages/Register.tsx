@@ -2,7 +2,7 @@ import { Button, Input } from "@mui/material";
 import React from "react";
 import colors from "../colors";
 import { MyWindow } from "../components/MyWindow";
-import sendRegisterCredentials from "../scripts/register";
+import { useRegister } from "../hooks/useRegister";
 import '../styles/Register.css';
 
 const Register = () => {
@@ -25,6 +25,7 @@ const Register = () => {
     value:'',
     style:{color:colors.error, fontSize:'0.7em'},
   });
+  const { register } = useRegister();
 
   function sendCredentials() {
     if (!email.value.trim()) {
@@ -52,18 +53,18 @@ const Register = () => {
       });
       return;
     }
-    sendRegisterCredentials(email.value, password.value)
+    register(email.value, password.value)
       .then(() => {
         setMessage({
           ...message,
           style: {...message.style, color:'white'},
           value: 'Register successful'
         });
-      },
-      (errorMsg: Error) => {
+      })
+      .catch((error: Error) => {
         setMessage({
           ...message, 
-          value:errorMsg.message,
+          value:error.message,
           style:{...message.style, color:colors.error},
         });
       });
