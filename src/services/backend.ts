@@ -2,6 +2,7 @@ import axios from 'axios';
 import API_URL from '../apiUrl';
 import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS } from '../endpoints';
 import Cookies from 'universal-cookie/es6';
+import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED } from '../apiErrorMessages';
 
 export class BackendService {
   cookies: any;
@@ -32,7 +33,7 @@ export class BackendService {
       const res = await axios.post(`${API_URL}${ADMIN_LOGIN}`, {email, password});
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
-          case 'error_bad_login':
+          case ERROR_BAD_LOGIN:
             return Promise.reject(new Error('Invalid email or password'));
           default:
             return Promise.reject(res.data['message'])
@@ -55,7 +56,7 @@ export class BackendService {
       });
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
-          case 'error_email_in_use':
+          case ERROR_EMAIL_USED:
             return Promise.reject(new Error('That email is already used'));
           default:
             return Promise.reject(new Error(res.data['message']));
@@ -74,7 +75,7 @@ export class BackendService {
       const res = await axios.get(`${API_URL}${GET_USERS}`);
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
-          case 'error_bad_login':
+          case ERROR_BAD_LOGIN:
             return Promise.reject(new Error('Invalid email or password'));
           default:
             return Promise.reject(res.data['message'])
