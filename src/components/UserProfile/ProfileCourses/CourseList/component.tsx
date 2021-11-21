@@ -8,7 +8,13 @@ export const CourseList= ({ roleName }: any) => {
         {roleName}
       </p>
       <p className='Info'>
-        Email: example@gmail.com
+        Analisis 3
+      </p>
+      <p className='Info'>
+        Fisica 2
+      </p>
+      <p className='Info'>
+        Proba y Estadistica
       </p>
     </div>
   );

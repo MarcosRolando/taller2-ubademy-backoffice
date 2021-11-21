@@ -1,0 +1,16 @@
+.Interests {
+  display: flex;
+  flex-direction: column;
+}
+
+.InterestsText {
+  font-size: 2.3em;
+  color: #3498db;
+  margin: 0.5em 0 0.5em 0;
+}
+
+.Interest {
+  font-size: 1em;
+  margin: 0.5em 0 0.5em 1.5em;
+  color: aliceblue;
+}
