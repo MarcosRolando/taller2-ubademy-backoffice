@@ -3,8 +3,8 @@ import { BackendService } from '../services/backend';
 
 export const useGetUsers = () => {
   const [users, setUsers] = React.useState([]);
-  const backendService = new BackendService();
   useEffect(() => {
+    const backendService = new BackendService();
     backendService.getUsers()
       .then((_users: any) => setUsers(_users))
       .catch((error: Error) => {

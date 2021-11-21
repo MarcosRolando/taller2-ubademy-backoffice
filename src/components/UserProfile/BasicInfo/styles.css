@@ -1,0 +1,40 @@
+.BasicInfo {
+  display: flex;
+  max-height: 25%;
+  max-width: 100%;
+  flex-direction: column;
+}
+
+.ProfilePhotoContainer {
+  display: flex;
+  max-height: 50%;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.ProfilePhoto {
+  display: flex;
+  max-height: 100%;
+  border-radius: 20%;
+  justify-content: center;
+}
+
+.InfoText {
+  font-size: 2.3em;
+  color: #3498db;
+  margin: 0.5em 0 0.5em 0;
+}
+
+.Username {
+  display: flex;
+  font-size: 2.3em;
+  color: #3498db;
+  margin: 0.5em 0 0.5em 0;
+  align-self: center;
+}
+
+.Info {
+  font-size: 1em;
+  margin: 0.5em 0 0.5em 1.5em;
+  color: aliceblue;
+}

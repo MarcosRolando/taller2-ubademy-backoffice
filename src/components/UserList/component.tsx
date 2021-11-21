@@ -3,9 +3,6 @@ import { User } from './User';
 import './styles.css';
 
 export const UserList = ({ users }: any) => {
-
-  if (users.length === 0) return (<div className='UserList' />);
-
   return (
     <div className='UserList'>
       <div className='Description'>
@@ -16,7 +13,8 @@ export const UserList = ({ users }: any) => {
           Status
         </p>
       </div>
-      {users.map((email: string) => 
+      {(users.length === 0) ? <></> : 
+      users.map((email: string) => 
       <User email={email} blocked={false}/>)}
     </div>
   );

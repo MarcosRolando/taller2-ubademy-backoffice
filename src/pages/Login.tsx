@@ -1,5 +1,5 @@
 import { Button, Input } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import '../styles/Login.css';
 import logo from '../ubademy-logo.png';
 import { useNavigate } from "react-router";
@@ -26,11 +26,6 @@ export default function Login() {
     value:'',
     style:{color:colors.error},
   });
-
-  useEffect(() => {
-    setAccessToken('');
-    setUserCredentials('', '');
-  }, []);
 
   function sendCredentials() {
     if (!username.value.trim()) {
