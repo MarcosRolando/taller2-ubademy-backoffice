@@ -1,6 +1,5 @@
 .UserProfile {
   display: flex;
-  max-height: 100%;
   max-width: 30%;
   flex-direction: column;
   margin-top: 2.5em;

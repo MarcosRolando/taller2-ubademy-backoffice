@@ -1,0 +1,11 @@
+.CourseList {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0 1em 0;
+}
+
+.CourseRole {
+  font-size: 1.2em;
+  color: #3498db;
+  margin: 0 0 0 0.5em;
+}
