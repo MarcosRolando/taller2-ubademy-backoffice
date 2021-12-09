@@ -15,8 +15,8 @@ COPY . ./
 
 EXPOSE 3000
 
-CMD REACT_APP_PROD= npm run build
+RUN REACT_APP_PROD= npm run build
 
-CMD npm i -g serve
+RUN npm i -g serve
 
 CMD serve -s build
