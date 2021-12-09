@@ -52,7 +52,7 @@ export class BackendService {
       const res = await axios.post(`${API_URL}${ADMIN_REGISTER}`, {
         email,
         password,
-        name:'' //TODO this is probably going to be deleted from the backend, for now is a hack
+        name: 'Admin' //TODO this is probably going to be deleted from the backend, for now is a hack
       });
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
