@@ -1,17 +1,18 @@
 import { PinDropSharp } from "@material-ui/icons";
 import React from "react";
 import { Course } from './component';
+import { useNavigate } from "react-router";
+export const CourseContainer = ({ course }: any) => {
+  const navigate = useNavigate();
 
-export const CourseContainer = ({ title }: any) => {
-  //const [_blocked, setBlocked] = React.useState(blocked);
-
-  /* const onBlockChange = (blocked: boolean) => {
-    setBlocked(!_blocked);
-  } */
+  const onViewClick = (id: any) => {
+    navigate("/courseDetail", {state:{id:id}});
+  }
 
   return (
     <Course 
-      title={title}
+      course={course}
+      onViewClick={onViewClick}
     />
   );
 }

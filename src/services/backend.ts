@@ -1,6 +1,6 @@
 import axios from 'axios';
 import API_URL from '../apiUrl';
-import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE } from '../endpoints';
+import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA } from '../endpoints';
 import Cookies from 'universal-cookie/es6';
 import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED } from '../apiErrorMessages';
 
@@ -123,6 +123,35 @@ export class BackendService {
         _subType: data['subscription_type'],
         _genres: data['interesting_genres'],
         //TODO eventualmente me tienen que llegar los cursos en los que esta inscripto
+      });
+    } catch (error) {
+      console.log(error);
+      return Promise.reject(new Error('Error when trying to reach the server'));
+    }
+  }
+
+  public async getCourseData(id: string) {
+    try {
+      const res = await axios.get(`${API_URL}${GET_COURSE_DATA}${id}`);
+      if (res.data['status'] === 'error') {
+        switch (res.data['message']) {
+          default:
+            return Promise.reject(new Error(res.data['message']));
+        }
+      }
+      const data = res.data['course'];
+      return Promise.resolve({
+        _title: data['title'],
+        _creator_email: data['creator_email'],
+        _location: data['country'],
+        _subType: data['subscription_type'],
+        _description: data['description'],
+        _hashtags: data['hashtags'],
+        _images: data['images'],
+        _videos: data['videos'],
+        _course_type: data['course_type'],
+        _collaborators: data['collaborators'],
+        _students: data['students']
       });
     } catch (error) {
       console.log(error);

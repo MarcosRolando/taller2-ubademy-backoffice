@@ -7,16 +7,13 @@ export const CoursesList = ({ courses }: any) => {
   return (
     <div className='CoursesList'>
       <div className='Description'>
-        <p className='EmailText'>
-          Email
-        </p>
-        <p className='UsernameText'>
-          Status
+        <p className='TitleText'>
+          Title
         </p>
       </div>
       {(courses.length === 0) ? <></> : 
       courses.map((course: any) => 
-        <Course title={course.title}/>)}
+        <Course course={course}/>)}
     </div>
   );
 }

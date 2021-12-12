@@ -3,3 +3,4 @@ export const ADMIN_REGISTER = 'admin_register';
 export const GET_USERS = 'get_all_users';
 export const GET_COURSES = 'search_courses'
 export const USER_PROFILE = 'profile';
+export const GET_COURSE_DATA = 'courses/data/'
