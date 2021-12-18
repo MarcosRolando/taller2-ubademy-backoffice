@@ -1,6 +1,6 @@
 import axios from 'axios';
 import API_URL from '../apiUrl';
-import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA } from '../endpoints';
+import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA, GET_TRANSACTIONS } from '../endpoints';
 import Cookies from 'universal-cookie/es6';
 import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED } from '../apiErrorMessages';
 
@@ -154,6 +154,24 @@ export class BackendService {
         _students: data['students']
       });
     } catch (error) {
+      console.log(error);
+      return Promise.reject(new Error('Error when trying to reach the server'));
+    }
+  }
+
+  public async getTransactions() {
+    try {
+      const res = await axios.get(`${API_URL}${GET_TRANSACTIONS}/all`);//Meter lo de los filtros
+      if (res.data['status'] === 'error') {
+        switch (res.data['message']) {
+          case ERROR_BAD_LOGIN:
+            return Promise.reject(new Error('Invalid email or password'));
+          default:
+            return Promise.reject(res.data['message'])
+        }
+      }
+      return res.data['deposits'];
+    } catch(error) {
       console.log(error);
       return Promise.reject(new Error('Error when trying to reach the server'));
     }

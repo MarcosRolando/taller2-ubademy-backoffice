@@ -3,7 +3,7 @@ import { MyWindow } from "../components/MyWindow";
 import { CourseDetail } from "../components/CourseDetail";
 import { useLocation } from "react-router";
 
-export default function Profile() {
+export default function Course() {
   const { state } = useLocation();
   const {id} = state;
 
