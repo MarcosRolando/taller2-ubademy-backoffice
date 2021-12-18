@@ -3,5 +3,10 @@
     max-width: 30%;
     flex-direction: column;
     margin-top: 2.5em;
+    color: #FFFFFF;
+  }
+
+  .CourseTitle {
+    color: #FFFFFF;
   }
   

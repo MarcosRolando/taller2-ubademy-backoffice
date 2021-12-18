@@ -8,33 +8,38 @@ export const CourseDetail = ({ course }: any) => {
 
   return (
     <div className='CourseDetail'>
-      <div>
+      <img src={_images[0]} alt="Course thumbnail">
+      </img>
+      <h1 className="CourseTitle" >
           {_title}
-      </div>
-      <div>
-          {_creator_email}
-      </div>
-      <div>
-          {_location}
-      </div>
-      <div>
-          {_subType}
-      </div>
+      </h1>
       <div>
           {_description}
       </div>
       <div>
-          {_hashtags}
+          {_course_type}
       </div>
       <div>
-          {_images}
+          {_hashtags.map((h: string) => ` ${h}`)}
+      </div>
+      <div>
+          {`Made by: ${_creator_email}`}
+      </div>
+      <div>
+        {`Location: ${_location}`}
+      </div>
+      <div>
+        {`Subscription required: ${_subType}`}
+      </div>
+      <div>
+          {/* Esto no esta mostrando las imagenes. Ver que onda */}
+          {_images.map((url:string) => {
+              <img src={url} />
+          })}
       </div>
       {/* <div>
           {_videos}
       </div> */}
-      <div>
-          {_course_type}
-      </div>
       <div>
           {_collaborators}
       </div>

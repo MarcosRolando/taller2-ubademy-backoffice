@@ -14,8 +14,8 @@ export const UserList = ({ users }: any) => {
         </p>
       </div>
       {(users.length === 0) ? <></> : 
-      users.map((email: string) => 
-      <User email={email} blocked={false}/>)}
+      users.map((user: any) => 
+      <User email={user.email} blocked={false}/>)}
     </div>
   );
 }
