@@ -1,0 +1,38 @@
+.TransactionsList {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 5em;
+    color: white;
+    width: 60em;
+  }
+  
+  .TitleText {
+    color: aliceblue;
+  }
+  
+  .Description {
+    display: flex;
+    border-bottom: 0.05em solid aliceblue;
+    justify-content: flex-start;
+  }
+
+  .SenderTitle {
+    margin-left: 0em;
+    width: 12.2em;
+  }
+  
+  .ReceiverTitle{
+    margin-left: 1em;
+    width: 12.5em;
+
+  }
+
+  .AmountTitle {
+    margin-left: 1em;
+    width: 6em;
+  }
+
+  .DateTitle {
+      margin-left: 6em;
+  }

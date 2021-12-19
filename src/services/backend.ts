@@ -159,9 +159,9 @@ export class BackendService {
     }
   }
 
-  public async getTransactions() {
+  public async getTransactions(filter: string) {
     try {
-      const res = await axios.get(`${API_URL}${GET_TRANSACTIONS}/all`);//Meter lo de los filtros
+      const res = await axios.get(`${API_URL}${GET_TRANSACTIONS}/${filter}`);//Meter lo de los filtros
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           case ERROR_BAD_LOGIN:

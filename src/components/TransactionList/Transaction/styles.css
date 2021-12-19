@@ -1,16 +1,26 @@
-.Course {
-    display: flex;
-    min-width: 40em;
-    justify-content: space-between;
+.Transaction {
+  display: flex;
+  min-width: 40em;
+  }
+
+  .Sender {
+    margin-left: 0em;
+    width: 14.3em;
   }
   
-  .Title {
-    color: #3498db;
+  .Receiver{
+    margin-left: 1em;
+    width: 15em;
+
   }
-  
-  .StatusButton {
-    display: flex;
-    height: 50%;
-    align-self: center;
+
+  .Amount {
+    margin-left: 1em;
+    width: 6em;
   }
-  
+
+  .Date {
+    margin-left: 8em;
+  }
+
+

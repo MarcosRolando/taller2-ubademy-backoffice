@@ -1,11 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { User } from './component';
 
 export const UserContainer = ({ email, username, blocked }: any) => {
   const [_blocked, setBlocked] = React.useState(blocked);
+  const navigate = useNavigate();
 
   const onBlockChange = (blocked: boolean) => {
     setBlocked(!_blocked);
+  }
+
+  const onViewTransactions = (email: string) => {
+    navigate('/transactions', {state: {filter:email}});
   }
 
   return (
@@ -14,6 +20,7 @@ export const UserContainer = ({ email, username, blocked }: any) => {
       username={username}
       blocked={_blocked}
       onBlockChange={onBlockChange}
+      onViewTransactions={onViewTransactions}
     />
   );
 }

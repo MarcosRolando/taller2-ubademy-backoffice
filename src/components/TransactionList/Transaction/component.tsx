@@ -6,9 +6,18 @@ import colors from '../../../colors';
 export const Transaction = ({ transaction }: any) => {
 
   return (
-    <div className='Course'>
-      <p className='Title'>
+    <div className='Transaction'>
+      <p className='Sender'>
         {transaction.sender}
+      </p>
+      <p className='Receiver'>
+        {transaction.receiver}
+      </p>
+      <p className='Amount'>
+        {transaction.amount_sent}
+      </p>
+      <p className='Date'>
+        {transaction.date}
       </p>
     </div>
   );

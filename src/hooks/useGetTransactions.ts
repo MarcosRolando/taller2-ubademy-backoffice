@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { BackendService } from '../services/backend';
 
-export const useGetTransactions = () => {
+export const useGetTransactions = (filter: any) => {
   const [transactions, setTransactions] = React.useState([]);
   useEffect(() => {
     const backendService = new BackendService();
-    backendService.getTransactions()
+    backendService.getTransactions(filter)
       .then((_transactions: any) => setTransactions(_transactions))
       .catch((error: Error) => {
         console.log(error.message);
