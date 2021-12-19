@@ -1,13 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { User } from './component';
+import { useChangeBlockedStatus } from "../../../hooks/useChangeBlockedStatus";
 
 export const UserContainer = ({ email, username, blocked }: any) => {
   const [_blocked, setBlocked] = React.useState(blocked);
   const navigate = useNavigate();
+  const {changeBlockedStatus} = useChangeBlockedStatus();
 
-  const onBlockChange = (blocked: boolean) => {
-    setBlocked(!_blocked);
+  const onBlockChange = async (blocked: boolean) => {
+    await changeBlockedStatus(email, blocked).then(() => {
+      setBlocked(!_blocked);
+    },
+    (error: Error) => {
+    });
   }
 
   const onViewTransactions = (email: string) => {

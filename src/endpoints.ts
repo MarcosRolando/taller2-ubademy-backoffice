@@ -5,3 +5,4 @@ export const GET_COURSES = 'search_courses'
 export const USER_PROFILE = 'profile';
 export const GET_COURSE_DATA = 'courses/data/'
 export const GET_TRANSACTIONS = 'deposits'
+export const CHANGE_BLOCKED_STATUS = 'change_blocked_status'

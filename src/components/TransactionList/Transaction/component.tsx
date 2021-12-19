@@ -14,7 +14,7 @@ export const Transaction = ({ transaction }: any) => {
         {transaction.receiver}
       </p>
       <p className='Amount'>
-        {transaction.amount_sent}
+        {transaction.amount_sent + " ETH"}
       </p>
       <p className='Date'>
         {transaction.date}
