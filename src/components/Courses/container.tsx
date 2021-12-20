@@ -22,8 +22,6 @@ export const CoursesListContainer = () => {
     setTypeFilter(value);
   }
 
-  console.log(courseTypes);
-
   return (
     <CoursesList
       courses={handleApplyFilter(courses)}

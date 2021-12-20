@@ -1,4 +1,3 @@
-import {TextField, Button} from '@mui/material';
 import React from 'react';
 import './styles.css';
 import { Transaction } from './Transaction';
@@ -10,7 +9,7 @@ export const TransactionsList = ({ transactions, filter, onFilterChange, onApply
       <h1>
         Transactions
       </h1>
-      <div className='Description'>
+      <div className='TransactionsDescription'>
         <h3 className='SenderTitle'>
           Sender
         </h3>

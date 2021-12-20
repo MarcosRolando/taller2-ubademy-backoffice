@@ -5,17 +5,20 @@ import './styles.css';
 export const UserList = ({ users }: any) => {
   return (
     <div className='UserList'>
-      <div className='Description'>
+      <div className='UsersDescription'>
         <p className='EmailText'>
           Email
         </p>
         <p className='UsernameText'>
           Status
         </p>
+        <p className='TransactionsText'>
+          Transactions
+        </p>
       </div>
       {(users.length === 0) ? <></> : 
       users.map((user: any) => 
-      <User email={user.email} blocked={user.is_blocked}/>)}
+      <User key={user.email} email={user.email} blocked={user.is_blocked}/>)}
     </div>
   );
 }

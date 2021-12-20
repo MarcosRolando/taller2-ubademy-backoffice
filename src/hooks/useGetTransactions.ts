@@ -10,6 +10,6 @@ export const useGetTransactions = (filter: any) => {
       .catch((error: Error) => {
         console.log(error.message);
       })
-  }, [])
+  }, [filter])
   return { transactions };
 }

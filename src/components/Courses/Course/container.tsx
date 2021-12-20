@@ -1,4 +1,3 @@
-import { PinDropSharp } from "@material-ui/icons";
 import React from "react";
 import { Course } from './component';
 import { useNavigate } from "react-router";

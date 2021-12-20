@@ -1,21 +1,20 @@
 import React from 'react';
 import './styles.css';
 import { Course } from './Course';
-import { Button } from "@mui/material";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
 export const CoursesList = ({ courses, subFilter, typeFilter, onSubFilterChange, onTypeFilterChange, courseTypes, subscriptionTypes, countries  }: any) => {
   return (
     <div className='CoursesList'>
-      <div className='Description'>
+      <div className='CoursesDescription'>
         <p className='TitleText'>
           Title
         </p>
       </div>
       {(courses.length === 0) ? <></> : 
       courses.map((course: any) => 
-        <Course course={course}/>)}
+        <Course key={course._id} course={course}/>)}
 
       <Select
           labelId="demo-simple-select-label"
@@ -38,9 +37,9 @@ export const CoursesList = ({ courses, subFilter, typeFilter, onSubFilterChange,
           label="Course Type"
           onChange={(e) => onTypeFilterChange(e.target.value)}
         >
-          {courseTypes.map((type: string) => {
-            <MenuItem value={type}>{type}</MenuItem>
-          })}
+          {courseTypes.map((type: string) => 
+            <MenuItem key={type} value={type}>{type}</MenuItem>
+          )}
       </Select>
     </div>
   );

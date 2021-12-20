@@ -6,14 +6,14 @@ import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED } from '../apiErrorMessages';
 
 export class BackendService {
   cookies: any;
-  tokenInterceptor: any;
+  static tokenInterceptor: any;
 
   constructor() {
     this.cookies = new Cookies();
   }
 
   private _addTokenInterceptor() {
-    this.tokenInterceptor = axios.interceptors.request.use((config: any) => {
+    BackendService.tokenInterceptor = axios.interceptors.request.use((config: any) => {
       config.headers['Authorization'] = `Bearer ${this.cookies.get('jwt')}`;
       return config;
     });
@@ -25,7 +25,7 @@ export class BackendService {
 
   public logout() {
     this.cookies.remove('jwt');
-    axios.interceptors.request.eject(this.tokenInterceptor);
+    axios.interceptors.request.eject(BackendService.tokenInterceptor);
   }
 
   public async login(email: string, password: string) {

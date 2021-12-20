@@ -12,6 +12,6 @@ export const useGetCourseData = (id: string) => {
       .catch((error: Error) => {
         console.log(error.message);
       })
-  }, [])
+  }, [id])
   return { courseData };
 }
