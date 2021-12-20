@@ -12,6 +12,9 @@ export const UserList = ({ users }: any) => {
         <p className='UsernameText'>
           Status
         </p>
+        <p className='UsernameText'>
+          Profile
+        </p>
         <p className='TransactionsText'>
           Transactions
         </p>

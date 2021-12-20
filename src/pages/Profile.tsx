@@ -5,7 +5,7 @@ import { useLocation } from "react-router";
 
 export default function Profile() {
   const { state } = useLocation();
-  const { email } = state;
+  const { email } = state === null ? "" : state;
 
   return (
     <MyWindow>

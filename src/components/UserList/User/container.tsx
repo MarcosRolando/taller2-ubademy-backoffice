@@ -31,6 +31,7 @@ export const UserContainer = ({ email, username, blocked }: any) => {
       blocked={_blocked}
       onBlockChange={onBlockChange}
       onViewTransactions={onViewTransactions}
+      onViewProfile={onViewProfile}
     />
   );
 }
