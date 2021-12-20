@@ -1,9 +1,12 @@
 import React from "react";
 import { useGetCourses } from "../../hooks/useGetCourses";
+import { useGetCoursesSetupInfo } from "../../hooks/useGetCoursesSetupInfo";
 import { CoursesList } from "./component";
 
 export const CoursesListContainer = () => {
   const { courses } = useGetCourses();
+  const {courseTypes, subscriptionTypes, countries} = useGetCoursesSetupInfo();
+
   let [subFilter, setSubFilter] = React.useState("None");//Filtro del tipo de suscripcion del curso
   let [typeFilter, setTypeFilter] = React.useState("None");//Filtro del tipo de curso
 
@@ -19,6 +22,8 @@ export const CoursesListContainer = () => {
     setTypeFilter(value);
   }
 
+  console.log(courseTypes);
+
   return (
     <CoursesList
       courses={handleApplyFilter(courses)}
@@ -26,6 +31,9 @@ export const CoursesListContainer = () => {
       onTypeFilterChange={handleTypeFilterChange}
       subFilter={subFilter}
       typeFilter={typeFilter}
+      courseTypes={courseTypes}
+      subscriptionTypes={subscriptionTypes}
+      countries={countries}
     />
   );
 }

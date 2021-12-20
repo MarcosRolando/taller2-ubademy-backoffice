@@ -6,3 +6,4 @@ export const USER_PROFILE = 'profile';
 export const GET_COURSE_DATA = 'courses/data/'
 export const GET_TRANSACTIONS = 'deposits'
 export const CHANGE_BLOCKED_STATUS = 'change_blocked_status'
+export const COURSE_SETUP_INFO = 'course_setup'

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import API_URL from '../apiUrl';
-import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA, GET_TRANSACTIONS, CHANGE_BLOCKED_STATUS } from '../endpoints';
+import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA, GET_TRANSACTIONS, CHANGE_BLOCKED_STATUS, COURSE_SETUP_INFO } from '../endpoints';
 import Cookies from 'universal-cookie/es6';
 import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED } from '../apiErrorMessages';
 
@@ -188,9 +188,24 @@ export class BackendService {
             return Promise.reject(res.data['message'])
         }
       }
-      console.log(res.data);
       return res.data;
     } catch(error) {
+      console.log(error);
+      return Promise.reject(new Error('Error when trying to reach the server'));
+    }
+  }
+
+  public async getCoursesSetupInfo() {
+    try {
+      const res = await axios.get(`${API_URL}${COURSE_SETUP_INFO}`);
+      if (res.data['status'] === 'error') {
+        switch (res.data['message']) {
+          default:
+            return Promise.reject(new Error(res.data['message']));
+        }
+      }
+      return res.data;
+    } catch (error) {
       console.log(error);
       return Promise.reject(new Error('Error when trying to reach the server'));
     }

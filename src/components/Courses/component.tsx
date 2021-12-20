@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
-export const CoursesList = ({ courses, subFilter, typeFilter, onSubFilterChange, onTypeFilterChange  }: any) => {
+export const CoursesList = ({ courses, subFilter, typeFilter, onSubFilterChange, onTypeFilterChange, courseTypes, subscriptionTypes, countries  }: any) => {
   return (
     <div className='CoursesList'>
       <div className='Description'>
@@ -38,11 +38,9 @@ export const CoursesList = ({ courses, subFilter, typeFilter, onSubFilterChange,
           label="Course Type"
           onChange={(e) => onTypeFilterChange(e.target.value)}
         >
-          <MenuItem value={"None"}>None</MenuItem>
-          <MenuItem value={"Programming"}>Programming</MenuItem>
-          <MenuItem value={"Art"}>Art</MenuItem>
-          <MenuItem value={"Music"}>Music</MenuItem>
-          <MenuItem value={"Math"}>Math</MenuItem>
+          {courseTypes.map((type: string) => {
+            <MenuItem value={type}>{type}</MenuItem>
+          })}
       </Select>
     </div>
   );
