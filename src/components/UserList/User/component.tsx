@@ -3,7 +3,7 @@ import React from "react";
 import './styles.css';
 import colors from '../../../colors';
 
-export const User = ({ email, blocked, onBlockChange, onViewTransactions }: any) => {
+export const User = ({ email, blocked, onBlockChange, onViewTransactions, onViewProfile }: any) => {
 
   return (
     <div className='User'>
@@ -26,6 +26,14 @@ export const User = ({ email, blocked, onBlockChange, onViewTransactions }: any)
             Unblocked
           </Button>
           }
+      </div>
+      <div className="ViewProfileButton">
+        <Button onClick={() => onViewProfile(email)} sx={{color:'black', background:colors.primary, '&:hover': {
+              backgroundColor: colors.primary,
+              color: 'black',
+            }}}>
+              View Profile
+        </Button>
       </div>
       <div className="TransactionsButton">
         <Button onClick={() => onViewTransactions(email)} sx={{color:'black', background:colors.primary, '&:hover': {

@@ -1,16 +1,16 @@
 .Course {
-    display: flex;
-    min-width: 40em;
-    justify-content: space-between;
-  }
+  display: flex;
+  min-width: 40em;
+  justify-content: space-between;
+}
   
-  .Title {
-    color: #3498db;
-  }
+.Title {
+  color: #3498db;
+}
   
-  .StatusButton {
-    display: flex;
-    height: 50%;
-    align-self: center;
-  }
+.ViewButton {
+  display: flex;
+  height: 50%;
+  align-self: center;
+}
   

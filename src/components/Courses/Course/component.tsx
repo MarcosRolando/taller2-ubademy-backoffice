@@ -12,7 +12,7 @@ export const Course = ({ course, onViewClick }: any) => {
       </p>
       <div className='ViewButton'>
           <Button onClick={() => onViewClick(course._id)} sx={{color:'black', background:colors.primary, '&:hover': {
-            backgroundColor: colors.error,
+            backgroundColor: colors.primary,
             color: 'black',
           }}}>
             View

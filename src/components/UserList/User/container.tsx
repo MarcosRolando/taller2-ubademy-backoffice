@@ -20,6 +20,10 @@ export const UserContainer = ({ email, username, blocked }: any) => {
     navigate('/transactions', {state: {filter:email}});
   }
 
+  const onViewProfile = (email: string) => {
+    navigate('/profile', {state: {email:email}});
+  }
+
   return (
     <User 
       email={email}
