@@ -1,6 +1,6 @@
 import axios from 'axios';
 import API_URL from '../apiUrl';
-import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA, GET_TRANSACTIONS, CHANGE_BLOCKED_STATUS, COURSE_SETUP_INFO } from '../endpoints';
+import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA, GET_TRANSACTIONS, CHANGE_BLOCKED_STATUS, COURSE_SETUP_INFO, GET_USER_METRICS } from '../endpoints';
 import Cookies from 'universal-cookie/es6';
 import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED } from '../apiErrorMessages';
 
@@ -206,6 +206,30 @@ export class BackendService {
         }
       }
       return res.data;
+    } catch (error) {
+      console.log(error);
+      return Promise.reject(new Error('Error when trying to reach the server'));
+    }
+  }
+
+  public async getUserMetrics() {
+    try {
+      const res = await axios.get(`${API_URL}${GET_USER_METRICS}`);
+      if (res.data['status'] === 'error') {
+        switch (res.data['message']) {
+          default:
+            return Promise.reject(new Error(res.data['message']));
+        }
+      }
+      const data = res.data;
+      return Promise.resolve({
+        _users_amount: data["users_amount"],
+        _blocked_users: data["blocked_users"],
+        _last_registered_users:data["last_registered_users"],
+        _last_logged_users:data["last_logged_users"],
+        _last_registered_google_users :data["last_registered_google_users"],
+        _last_logged_google_users:data["last_logged_google_users"],
+      });
     } catch (error) {
       console.log(error);
       return Promise.reject(new Error('Error when trying to reach the server'));

@@ -2,7 +2,7 @@ import React from "react";
 import { SupervisorAccount } from "@material-ui/icons";
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Link } from "react-router-dom";
-import { COURSES_ROUTE, REGISTER_ROUTE, USERS_ROUTE, TRANSACTIONS_ROUTE } from "../../routePaths";
+import { COURSES_ROUTE, REGISTER_ROUTE, USERS_ROUTE, TRANSACTIONS_ROUTE, USER_METRICS_ROUTE } from "../../routePaths";
 import logo from '../../ubademy-logo.png';
 import './styles.css';
 
@@ -56,6 +56,16 @@ export const MaterialDrawer = () => {
               <ListItemIcon><SupervisorAccount/>
               </ListItemIcon>
               <ListItemText primary='Transactions' />
+            </ListItem>
+          </List>
+        </Link>
+
+        <Link className='Link' to={USER_METRICS_ROUTE}>
+          <List>
+            <ListItem button key='User Metrics'>
+              <ListItemIcon><SupervisorAccount/>
+              </ListItemIcon>
+              <ListItemText primary='UserMetrics' />
             </ListItem>
           </List>
         </Link>
