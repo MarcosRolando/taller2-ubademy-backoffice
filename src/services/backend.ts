@@ -122,6 +122,7 @@ export class BackendService {
         _location: data['country'],
         _subType: data['subscription_type'],
         _genres: data['interesting_genres'],
+        _wallet_data: data['wallet_data'],
         //TODO eventualmente me tienen que llegar los cursos en los que esta inscripto
       });
     } catch (error) {

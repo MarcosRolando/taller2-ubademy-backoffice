@@ -2,7 +2,7 @@ import React from "react";
 import profilePhoto from '../../../images/example.jpg';
 import './styles.css';
 
-export const BasicInfo = ({ name, location, email, subType }: any) => {
+export const BasicInfo = ({ name, location, email, subType, wallet_data }: any) => {
 
   return (
     <div className='BasicInfo'>
@@ -23,6 +23,15 @@ export const BasicInfo = ({ name, location, email, subType }: any) => {
       </p>
       <p className='Info'>
         Subscription type: {subType}
+      </p>
+      <p className='InfoText'>
+        Wallet
+      </p>
+      <p className='Info'>
+        Address: {wallet_data.address}
+      </p>
+      <p className='Info'>
+        Balance: {wallet_data.balance}
       </p>
     </div>
   );

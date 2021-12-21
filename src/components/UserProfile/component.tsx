@@ -6,7 +6,7 @@ import './styles.css';
 
 export const UserProfile = ({ profile }: any) => {
   const {_name, _email, _location, _subType, 
-          _genres} = profile;
+          _genres, _wallet_data} = profile;
 
   return (
     <div className='UserProfile'>
@@ -15,6 +15,7 @@ export const UserProfile = ({ profile }: any) => {
         location={_location} 
         subType={_subType} 
         email={_email}
+        wallet_data={_wallet_data}
       />
       <Interests 
         genres={_genres}
