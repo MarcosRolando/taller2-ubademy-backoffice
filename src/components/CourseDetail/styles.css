@@ -1,15 +1,64 @@
 .CourseDetail {
   display: flex;
-  max-width: 30%;
+  max-width: 100%;
   flex-direction: column;
   margin-top: 2.5em;
   color: #FFFFFF;
+}
+
+.CourseThumbnail {
+  max-width: 20em;
+  max-height: 20em;
+  align-self: center;
+}
+
+.CourseTextTitle {
+  color: #3498db;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.CourseVideoTitle {
+  color: #3498db;
+  font-size: 1.2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+.Hashtags {
+  display: flex;
+}
+
+.Hashtag {
+  background-color: darkgray;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  margin-left: 0.5em;
+  border-radius: 5px;
+}
+
+.CourseText {
+  padding-left: 1em;
 }
 
 .CourseInfoText {
   font-size: 2.3em;
   color: #3498db;
   margin: 0.5em 0 0.5em 0;
+}
+
+.CourseImage {
+  max-width: 300px;
+  max-height: 300px;
+  margin-bottom: 0.8em;
+  margin-top: 0.8em;
+}
+
+.CourseImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .CourseTitle {
