@@ -1,12 +1,27 @@
 .CourseDetail {
-    display: flex;
-    max-width: 30%;
-    flex-direction: column;
-    margin-top: 2.5em;
-    color: #FFFFFF;
-  }
+  display: flex;
+  max-width: 30%;
+  flex-direction: column;
+  margin-top: 2.5em;
+  color: #FFFFFF;
+}
 
-  .CourseTitle {
-    color: #FFFFFF;
-  }
-  
+.CourseInfoText {
+  font-size: 2.3em;
+  color: #3498db;
+  margin: 0.5em 0 0.5em 0;
+}
+
+.CourseTitle {
+  display: flex;
+  font-size: 2.3em;
+  color: #3498db;
+  margin: 0.5em 0 0.5em 0;
+  align-self: center;
+}
+
+.CourseInfo {
+  font-size: 1em;
+  margin: 0.5em 0 0.5em 1.5em;
+  color: aliceblue;
+}

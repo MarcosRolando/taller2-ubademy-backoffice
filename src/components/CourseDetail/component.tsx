@@ -9,9 +9,12 @@ export const CourseDetail = ({ course }: any) => {
   return (
     <div className='CourseDetail'>
       <img src={_images[0]} alt="Course thumbnail" />
-      <h1 className="CourseTitle" >
+      <div className= ''>
+
+      </div>
+      <p className="CourseTitle" >
           {_title}
-      </h1>
+      </p>
       <div>
           {_description}
       </div>
@@ -31,7 +34,6 @@ export const CourseDetail = ({ course }: any) => {
         {`Subscription required: ${_subType}`}
       </div>
       <div>
-          {/* Esto no esta mostrando las imagenes. Ver que onda */}
           {_images.map((url:string) =>
               <img src={url} alt={'imagen'} />
           )}

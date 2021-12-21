@@ -10,7 +10,7 @@ export const UserProfile = ({ profile }: any) => {
 
   return (
     <div className='UserProfile'>
-      <BasicInfo 
+      <BasicInfo
         name={_name} 
         location={_location} 
         subType={_subType} 
