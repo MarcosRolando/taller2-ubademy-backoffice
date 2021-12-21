@@ -1,7 +1,4 @@
 import React from "react";
-//import { BasicInfo } from "./BasicInfo";
-//import { Interests } from "./Interests";
-//import { ProfileCourses } from "./ProfileCourses";
 import './styles.css';
 
 export const UserMetrics = ({userMetrics}: any) => {

@@ -1,13 +1,13 @@
 import React from "react";
-import profilePhoto from '../../../images/example.jpg';
+import profilePhoto from '../../../images/default.png';
 import './styles.css';
 
-export const BasicInfo = ({ name, location, email, subType, wallet_data }: any) => {
+export const BasicInfo = ({ name, location, email, subType, wallet_data, _profile_image }: any) => {
 
   return (
     <div className='BasicInfo'>
       <div className='ProfilePhotoContainer'>
-        <img src={profilePhoto} className='ProfilePhoto' alt='Logo' />
+        <img src={(_profile_image === "") ? _profile_image : profilePhoto} className='ProfilePhoto' alt='Logo' />
       </div>
       <p className='Username'>
         {name}
@@ -31,7 +31,7 @@ export const BasicInfo = ({ name, location, email, subType, wallet_data }: any) 
         Address: {wallet_data.address}
       </p>
       <p className='Info'>
-        Balance: {wallet_data.balance}
+        Balance: {`${wallet_data.balance} ETH`}
       </p>
     </div>
   );
