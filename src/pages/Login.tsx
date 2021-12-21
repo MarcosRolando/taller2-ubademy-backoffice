@@ -3,7 +3,7 @@ import React from "react";
 import '../styles/Login.css';
 import logo from '../ubademy-logo.png';
 import { useNavigate } from "react-router";
-import { PROFILE_ROUTE } from "../routePaths";
+import { COURSES_ROUTE } from "../routePaths";
 import colors from "../colors";
 import '../styles/Login.css';
 import { useLogin } from "../hooks/useLogin";
@@ -45,7 +45,7 @@ export default function Login() {
     login(username.value, password.value)
       .then(() => {
         setMessage({...message, value:'Logging in...'});
-        navigate(PROFILE_ROUTE);
+        navigate(COURSES_ROUTE);
       },
       (error: Error) => {
         setMessage({...message, value:error.message});

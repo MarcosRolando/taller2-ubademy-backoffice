@@ -25,7 +25,7 @@ export const TransactionsList = ({ transactions, filter, onFilterChange, onApply
       </div>
       {(transactions.length === 0) ? <></> : 
       transactions.map((transaction: any) => 
-        <Transaction transaction={transaction}/>)}
+        <Transaction key={transaction._id} transaction={transaction}/>)}
     </div>
   );
 }
