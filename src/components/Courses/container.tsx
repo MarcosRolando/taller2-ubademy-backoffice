@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import React from "react";
 import { useGetCourses } from "../../hooks/useGetCourses";
 import { useGetCoursesSetupInfo } from "../../hooks/useGetCoursesSetupInfo";
@@ -13,6 +14,12 @@ export const CoursesListContainer = () => {
   const handleApplyFilter = (_courses:any) => {
     return _courses.filter((course:any) => (subFilter === "None" || course.subscription_type === subFilter) && 
       (typeFilter === "None" || course.course_type === typeFilter));
+  }
+
+  if (courses.length === 0) {
+    return (
+      <CircularProgress size={60} style={{marginTop: '10em'}} />
+    );
   }
 
   return (
