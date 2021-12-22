@@ -1,12 +1,16 @@
 import React from "react";
 import { SupervisorAccount } from "@material-ui/icons";
-import { Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import { Link } from "react-router-dom";
-import { COURSES_ROUTE, REGISTER_ROUTE, USERS_ROUTE, TRANSACTIONS_ROUTE, USER_METRICS_ROUTE } from "../../routePaths";
+import { Button, Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
+import { COURSES_ROUTE, REGISTER_ROUTE, USERS_ROUTE, TRANSACTIONS_ROUTE, USER_METRICS_ROUTE, LOGIN_ROUTE } from "../../routePaths";
 import logo from '../../ubademy-logo.png';
+import { useLogout } from "../../hooks/useLogout";
 import './styles.css';
 
 export const MaterialDrawer = () => {
+  const logout = useLogout();
+  const navigate = useNavigate();
+
   return (
     <div className='MaterialDrawer'>
       <Drawer 
@@ -69,6 +73,15 @@ export const MaterialDrawer = () => {
             </ListItem>
           </List>
         </Link>
+
+        <div style={{display: 'flex', flex: 1, alignItems: 'flex-start', justifyContent: 'center'}}>
+          <Button onClick={() => {
+            logout();
+            navigate(LOGIN_ROUTE);
+          }}>
+            Log out
+          </Button>
+        </div>
 
       </Drawer>
     </div>

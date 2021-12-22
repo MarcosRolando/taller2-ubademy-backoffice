@@ -10,6 +10,9 @@ export class BackendService {
 
   constructor() {
     this.cookies = new Cookies();
+    if ((this.cookies.get('jwt') !== undefined) && (BackendService.tokenInterceptor === undefined)) {
+      this._addTokenInterceptor();
+    }
   }
 
   private _addTokenInterceptor() {
