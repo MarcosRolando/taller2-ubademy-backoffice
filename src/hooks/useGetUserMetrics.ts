@@ -8,7 +8,6 @@ export const useGetUserMetrics = () => {
     const backendService = new BackendService();
     backendService.getUserMetrics()
       .then((metrics: any) => {
-        console.log("METRICS: ", metrics);
         setUserMetrics(metrics);
       })
       .catch((error: Error) => {

@@ -7,7 +7,7 @@ export const BasicInfo = ({ name, location, email, subType, wallet_data, _profil
   return (
     <div className='BasicInfo'>
       <div className='ProfilePhotoContainer'>
-        <img src={(_profile_image === "") ? _profile_image : profilePhoto} className='ProfilePhoto' alt='Logo' />
+        <img src={(_profile_image !== "") ? _profile_image : profilePhoto} className='ProfilePhoto' alt='Logo' />
       </div>
       <p className='Username'>
         {name}

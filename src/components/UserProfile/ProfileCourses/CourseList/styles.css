@@ -9,3 +9,10 @@
   color: #3498db;
   margin: 0 0 0 0.5em;
 }
+
+.UserCoursesList {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3em;
+  color: white;
+}
