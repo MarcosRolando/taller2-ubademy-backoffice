@@ -8,7 +8,7 @@ import '../styles/Register.css';
 const Register = () => {
   const [email, setEmail] = React.useState({
     value: '',
-    placeholder: 'Email',
+    placeholder: 'Username',
     style: {},
   });
   const [password, setPassword] = React.useState({

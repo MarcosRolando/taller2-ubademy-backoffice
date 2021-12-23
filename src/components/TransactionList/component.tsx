@@ -2,8 +2,8 @@ import React from 'react';
 import { Transaction } from './Transaction';
 import './styles.css';
 
-export const TransactionsList = ({ _transactions }: any) => {
-  const transactions = [{_id: 1, sender: 'mark', receiver: 'ivi', amount_sent: 24, date: '24/12/2021'}];
+export const TransactionsList = ({ transactions }: any) => {
+  //const transactions = [{_id: 1, sender: 'mark', receiver: 'ivi', amount_sent: 24, date: '24/12/2021'}];
 
   return (
     <div className='TransactionsList'>

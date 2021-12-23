@@ -2,12 +2,12 @@ import React from "react";
 import profilePhoto from '../../../images/default.png';
 import './styles.css';
 
-export const BasicInfo = ({ name, location, email, subType, wallet_data, _profile_image }: any) => {
+export const BasicInfo = ({ name, location, email, subType, wallet_data, profile_image }: any) => {
 
   return (
     <div className='BasicInfo'>
       <div className='ProfilePhotoContainer'>
-        <img src={(_profile_image !== "") ? _profile_image : profilePhoto} className='ProfilePhoto' alt='Logo' />
+        <img src={(profile_image !== "") ? profile_image : profilePhoto} className='ProfilePhoto' alt='Logo' />
       </div>
       <p className='Username'>
         {name}
