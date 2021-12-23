@@ -1,4 +1,4 @@
-import { Button, Input } from "@mui/material";
+import { Button, CircularProgress, Input } from "@mui/material";
 import React from "react";
 import colors from "../colors";
 import { MyWindow } from "../components/MyWindow";
@@ -25,6 +25,8 @@ const Register = () => {
     value:'',
     style:{color:colors.error, fontSize:'0.7em'},
   });
+  const [loading, setLoading] = React.useState(false);
+
   const { register } = useRegister();
 
   function sendCredentials() {
@@ -53,6 +55,7 @@ const Register = () => {
       });
       return;
     }
+    setLoading(true);
     register(email.value, password.value)
       .then(() => {
         setMessage({
@@ -67,7 +70,10 @@ const Register = () => {
           value:error.message,
           style:{...message.style, color:colors.error},
         });
-      });
+      })
+      .finally(() => {
+        setLoading(false);
+      })
   }
 
   return (
@@ -102,9 +108,10 @@ const Register = () => {
             style={{...message.style, display:'flex', alignSelf:'center', margin:0, padding:'0.7em'}}>
             {message.value}
             </p>
-          <Button onClick={sendCredentials}>
+          <Button onClick={sendCredentials} disabled={loading}>
             Register
           </Button>
+          {(loading) ? <CircularProgress size={30} style={{alignSelf: 'center'}} /> : <></>}
         </div>
       </div>
     </MyWindow>
