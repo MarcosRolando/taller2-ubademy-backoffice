@@ -78,10 +78,6 @@ export class BackendService {
             return Promise.reject(new Error(res.data['message']));
         }
       }
-      this.cookies.set('jwt', res.data['access_token']);
-      this.cookies.set(email, res.data['username']);
-      this.cookies.set(password, res.data['password']);
-      this._addInterceptors();
     } catch(error) {
       console.log(error);
       return Promise.reject(new Error('Error when trying to reach the server'));
@@ -213,7 +209,6 @@ export class BackendService {
 
   public async getTransactions(filter: string): Promise<any> {
     try {
-      console.log(filter);
       const res = await axios.get(`${API_URL}${GET_TRANSACTIONS}/${filter}`); //Meter lo de los filtros
       if (res === undefined) {
         return this.getTransactions(filter);
