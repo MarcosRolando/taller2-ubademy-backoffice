@@ -1,5 +1,5 @@
-import { Button, Input } from "@mui/material";
-import React from "react";
+import { Button, CircularProgress, Input } from "@mui/material";
+import React, { useState } from "react";
 import '../styles/Login.css';
 import logo from '../ubademy-logo.png';
 import { useNavigate } from "react-router";
@@ -11,6 +11,7 @@ import '../styles/Login.css';
 export default function Login() {
   let navigate = useNavigate();
   const { login } = useLogin();
+  const [loading, setLoading] = useState(false);
 
   const [username, setUsername] = React.useState({
     value: '',
@@ -42,6 +43,7 @@ export default function Login() {
       });
       return;
     }
+    setLoading(true);
     login(username.value, password.value)
       .then(() => {
         setMessage({...message, value:'Logging in...'});
@@ -49,6 +51,9 @@ export default function Login() {
       },
       (error: Error) => {
         setMessage({...message, value:error.message});
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }
 
@@ -76,9 +81,10 @@ export default function Login() {
           style={{display:'flex', alignSelf:'center', margin:0, padding:'0.7em', color: colors.error, fontSize:'0.7em'}}>
           {message.value}
           </p>
-        <Button onClick={sendCredentials}>
+        <Button onClick={sendCredentials} disabled={loading}>
           Login
         </Button>
+        {(loading) ? <CircularProgress size={30} style={{alignSelf: 'center'}} /> : <></>}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 .UserMetricsPage {
   display: flex;
   min-width: 60%;
+  justify-content: center;
 }

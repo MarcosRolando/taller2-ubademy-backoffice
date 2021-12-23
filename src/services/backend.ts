@@ -2,24 +2,35 @@ import axios from 'axios';
 import API_URL from '../apiUrl';
 import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA, GET_TRANSACTIONS, CHANGE_BLOCKED_STATUS, COURSE_SETUP_INFO, GET_USER_METRICS, USER_COURSES } from '../endpoints';
 import Cookies from 'universal-cookie/es6';
-import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED, ERROR_NO_DEPOSITS } from '../apiErrorMessages';
+import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED, ERROR_EXPIRED_CREDENTIALS, ERROR_NO_DEPOSITS } from '../apiErrorMessages';
 
 export class BackendService {
   cookies: any;
   static tokenInterceptor: any;
+  static jwtInterceptor: any;
 
   constructor() {
     this.cookies = new Cookies();
     if ((this.cookies.get('jwt') !== undefined) && (BackendService.tokenInterceptor === undefined)) {
-      this._addTokenInterceptor();
+      this._addInterceptors();
     }
   }
 
-  private _addTokenInterceptor() {
+  private _addInterceptors() {
     BackendService.tokenInterceptor = axios.interceptors.request.use((config: any) => {
       config.headers['Authorization'] = `Bearer ${this.cookies.get('jwt')}`;
       return config;
     });
+    BackendService.jwtInterceptor = axios.interceptors.response.use(async res => {
+      if (res.data['status'] === 'error') {
+        switch (res.data['message']) {
+          case ERROR_EXPIRED_CREDENTIALS:
+            await this.login(this.cookies.get('username'), this.cookies.get('password'));
+            return undefined;
+        }
+      }
+      return res;
+    })
   }
 
   public isLoggedIn() {
@@ -43,7 +54,9 @@ export class BackendService {
         }
       }
       this.cookies.set('jwt', res.data['access_token']);
-      this._addTokenInterceptor();
+      this.cookies.set(email, res.data['username']);
+      this.cookies.set(password, res.data['password']);
+      this._addInterceptors();
     } catch(error) {
       console.log(error);
       return Promise.reject(new Error('Error when trying to reach the server'));
@@ -66,16 +79,21 @@ export class BackendService {
         }
       }
       this.cookies.set('jwt', res.data['access_token']);
-      this._addTokenInterceptor();
+      this.cookies.set(email, res.data['username']);
+      this.cookies.set(password, res.data['password']);
+      this._addInterceptors();
     } catch(error) {
       console.log(error);
       return Promise.reject(new Error('Error when trying to reach the server'));
     }
   }
 
-  public async getUsers() {
+  public async getUsers(): Promise<any> {
     try {
       const res = await axios.get(`${API_URL}${GET_USERS}`);
+      if (res === undefined) {
+        return this.getUsers();
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           default:
@@ -89,9 +107,12 @@ export class BackendService {
     }
   }
 
-  public async getCourses() {
+  public async getCourses(): Promise<any> {
     try {
       const res = await axios.get(`${API_URL}${GET_COURSES}/none/none`);//Meter lo de los filtros
+      if (res === undefined) {
+        return this.getCourses();
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           default:
@@ -105,9 +126,12 @@ export class BackendService {
     }
   }
 
-  public async getUserProfile(email: string) {
+  public async getUserProfile(email: string): Promise<any> {
     try {
       const res = await axios.get(`${API_URL}${USER_PROFILE}/${email}`);
+      if (res === undefined) {
+        return this.getUserProfile(email);
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           default:
@@ -130,9 +154,12 @@ export class BackendService {
     }
   }
 
-  public async getUserCourses(email: string) {
+  public async getUserCourses(email: string): Promise<any> {
     try {
       const res = await axios.get(`${API_URL}${USER_COURSES}/${email}`);
+      if (res === undefined) {
+        return this.getUserCourses(email);
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           default:
@@ -152,9 +179,12 @@ export class BackendService {
     }
   }
 
-  public async getCourseData(id: string) {
+  public async getCourseData(id: string): Promise<any> {
     try {
       const res = await axios.get(`${API_URL}${GET_COURSE_DATA}${id}`);
+      if (res === undefined) {
+        return this.getCourseData(id);
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           default:
@@ -181,9 +211,13 @@ export class BackendService {
     }
   }
 
-  public async getTransactions(filter: string) {
+  public async getTransactions(filter: string): Promise<any> {
     try {
-      const res = await axios.get(`${API_URL}${GET_TRANSACTIONS}/${filter}`);//Meter lo de los filtros
+      console.log(filter);
+      const res = await axios.get(`${API_URL}${GET_TRANSACTIONS}/${filter}`); //Meter lo de los filtros
+      if (res === undefined) {
+        return this.getTransactions(filter);
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           case ERROR_NO_DEPOSITS:
@@ -199,9 +233,12 @@ export class BackendService {
     }
   }
 
-  public async changeBlockedStatus(email: string, isBlocked: boolean) {
+  public async changeBlockedStatus(email: string, isBlocked: boolean): Promise<any> {
     try {
       const res = await axios.post(`${API_URL}${CHANGE_BLOCKED_STATUS}`, {"modified_user":email, "is_blocked": isBlocked});
+      if (res === undefined) {
+        return this.changeBlockedStatus(email, isBlocked);
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           default:
@@ -215,9 +252,12 @@ export class BackendService {
     }
   }
 
-  public async getCoursesSetupInfo() {
+  public async getCoursesSetupInfo(): Promise<any> {
     try {
       const res = await axios.get(`${API_URL}${COURSE_SETUP_INFO}`);
+      if (res === undefined) {
+        return this.getCoursesSetupInfo();
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           default:
@@ -231,9 +271,12 @@ export class BackendService {
     }
   }
 
-  public async getUserMetrics() {
+  public async getUserMetrics(): Promise<any> {
     try {
       const res = await axios.get(`${API_URL}${GET_USER_METRICS}`);
+      if (res === undefined) {
+        return this.getUserMetrics();
+      }
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
           default:
