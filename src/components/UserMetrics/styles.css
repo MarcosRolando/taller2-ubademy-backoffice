@@ -1,11 +1,9 @@
 .UserMetrics {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  margin-top: 2em;
-  margin-left: 10em;
   color: white;
-  width: 60em;
+  flex: 1;
+  margin-top: 5em;
 }
 
 .MetricInfo {
@@ -14,12 +12,20 @@
   justify-content: space-between;
 }
 
+.UserMetricLine {
+  flex: 1;
+  border-bottom: 2px dotted white;
+  align-self: center;
+}
+
 .MetricText {
-  font-size:150%;
+  font-size: 20px;
+  margin-right: 2%;
 }
 
 .MetricAmount {
-  font-size:150%;
+  font-size: 20px;
+  margin-left: 2%;
 }
 
 .UserMetricTitle{

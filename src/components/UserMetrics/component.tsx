@@ -12,6 +12,7 @@ export const UserMetrics = ({userMetrics}: any) => {
             <p className="MetricText">
                 {`Total Users: `}
             </p>
+            <div className='UserMetricLine' />
             <p className="MetricAmount">
                 {userMetrics._users_amount}
             </p>
@@ -20,6 +21,7 @@ export const UserMetrics = ({userMetrics}: any) => {
             <p className="MetricText">
                 {`Total Blocked Users: `}
             </p>
+            <div className='UserMetricLine' />
             <p className="MetricAmount">
                 {userMetrics._blocked_users}
             </p>
@@ -28,6 +30,7 @@ export const UserMetrics = ({userMetrics}: any) => {
             <p className="MetricText">
                 {`Users registered today: `}
             </p>
+            <div className='UserMetricLine' />
             <p className="MetricAmount">
                 {userMetrics._last_registered_users}
             </p>
@@ -36,6 +39,7 @@ export const UserMetrics = ({userMetrics}: any) => {
             <p className="MetricText">
                 {`Users logged in during last hour: `}
             </p>
+            <div className='UserMetricLine' />
             <p className="MetricAmount">
                 {userMetrics._last_logged_users}
             </p>
@@ -44,6 +48,7 @@ export const UserMetrics = ({userMetrics}: any) => {
             <p className="MetricText">
                 {`Users registered with google today: `}
             </p>
+            <div className='UserMetricLine' />
             <p className="MetricAmount">
                 {userMetrics._last_registered_google_users}
             </p>
@@ -52,6 +57,7 @@ export const UserMetrics = ({userMetrics}: any) => {
             <p className="MetricText">
                 {`Users logged in with google during last hour: `}
             </p>
+            <div className='UserMetricLine' />
             <p className="MetricAmount">
                 {userMetrics._last_logged_google_users}
             </p>

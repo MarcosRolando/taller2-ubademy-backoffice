@@ -5,6 +5,9 @@ import './styles.css';
 export const UserList = ({ users }: any) => {
   return (
     <div className='UserList'>
+      <h1 className='UsersTitle'>
+        Users
+      </h1>
       <div className='UsersDescription'>
         <p className='EmailText'>
           Email

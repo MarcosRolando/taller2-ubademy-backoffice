@@ -2,7 +2,7 @@ import axios from 'axios';
 import API_URL from '../apiUrl';
 import { ADMIN_LOGIN, ADMIN_REGISTER, GET_USERS, GET_COURSES, USER_PROFILE, GET_COURSE_DATA, GET_TRANSACTIONS, CHANGE_BLOCKED_STATUS, COURSE_SETUP_INFO, GET_USER_METRICS, USER_COURSES } from '../endpoints';
 import Cookies from 'universal-cookie/es6';
-import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED } from '../apiErrorMessages';
+import { ERROR_BAD_LOGIN, ERROR_EMAIL_USED, ERROR_NO_DEPOSITS } from '../apiErrorMessages';
 
 export class BackendService {
   cookies: any;
@@ -78,8 +78,6 @@ export class BackendService {
       const res = await axios.get(`${API_URL}${GET_USERS}`);
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
-          case ERROR_BAD_LOGIN:
-            return Promise.reject(new Error('Invalid email or password'));
           default:
             return Promise.reject(res.data['message'])
         }
@@ -96,8 +94,6 @@ export class BackendService {
       const res = await axios.get(`${API_URL}${GET_COURSES}/none/none`);//Meter lo de los filtros
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
-          case ERROR_BAD_LOGIN:
-            return Promise.reject(new Error('Invalid email or password'));
           default:
             return Promise.reject(res.data['message'])
         }
@@ -127,7 +123,6 @@ export class BackendService {
         _genres: data['interesting_genres'],
         _wallet_data: data['wallet_data'],
         _profile_image: data["profile_picture_link"],
-        //TODO eventualmente me tienen que llegar los cursos en los que esta inscripto
       });
     } catch (error) {
       console.log(error);
@@ -191,8 +186,8 @@ export class BackendService {
       const res = await axios.get(`${API_URL}${GET_TRANSACTIONS}/${filter}`);//Meter lo de los filtros
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
-          case ERROR_BAD_LOGIN:
-            return Promise.reject(new Error('Invalid email or password'));
+          case ERROR_NO_DEPOSITS:
+            return [];
           default:
             return Promise.reject(res.data['message'])
         }
@@ -209,8 +204,6 @@ export class BackendService {
       const res = await axios.post(`${API_URL}${CHANGE_BLOCKED_STATUS}`, {"modified_user":email, "is_blocked": isBlocked});
       if (res.data['status'] === 'error') {
         switch (res.data['message']) {
-          case ERROR_BAD_LOGIN:
-            return Promise.reject(new Error('Invalid email or password'));
           default:
             return Promise.reject(res.data['message'])
         }

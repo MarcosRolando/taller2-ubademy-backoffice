@@ -6,7 +6,7 @@ import { UserList } from "./component";
 export const UserListContainer = () => {
   const { users } = useGetUsers();
 
-  if (users.length === 0) {
+  if (users === undefined) {
     return (
       <CircularProgress size={60} style={{marginTop: '10em'}} />
     );

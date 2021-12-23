@@ -1,5 +1,5 @@
 import React from "react";
-import { SupervisorAccount } from "@material-ui/icons";
+import { SupervisorAccount, School, HowToReg, AttachMoney, BarChart } from "@material-ui/icons";
 import { Button, Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { COURSES_ROUTE, REGISTER_ROUTE, USERS_ROUTE, TRANSACTIONS_ROUTE, USER_METRICS_ROUTE, LOGIN_ROUTE } from "../../routePaths";
@@ -26,7 +26,7 @@ export const MaterialDrawer = () => {
         <Link className='Link' to={REGISTER_ROUTE}>
           <List>
             <ListItem button key='Register Admin'>
-              <ListItemIcon><SupervisorAccount/>
+              <ListItemIcon><HowToReg/>
               </ListItemIcon>
               <ListItemText primary='Register an admin' />
             </ListItem>
@@ -47,7 +47,7 @@ export const MaterialDrawer = () => {
         <Link className='Link' to={COURSES_ROUTE}>
           <List>
             <ListItem button key='Courses'>
-              <ListItemIcon><SupervisorAccount/>
+              <ListItemIcon><School/>
               </ListItemIcon>
               <ListItemText primary='Courses' />
             </ListItem>
@@ -57,7 +57,7 @@ export const MaterialDrawer = () => {
         <Link className='Link' to={TRANSACTIONS_ROUTE}>
           <List>
             <ListItem button key='Transactions'>
-              <ListItemIcon><SupervisorAccount/>
+              <ListItemIcon><AttachMoney/>
               </ListItemIcon>
               <ListItemText primary='Transactions' />
             </ListItem>
@@ -67,9 +67,9 @@ export const MaterialDrawer = () => {
         <Link className='Link' to={USER_METRICS_ROUTE}>
           <List>
             <ListItem button key='User Metrics'>
-              <ListItemIcon><SupervisorAccount/>
+              <ListItemIcon><BarChart />
               </ListItemIcon>
-              <ListItemText primary='UserMetrics' />
+              <ListItemText primary='Metrics' />
             </ListItem>
           </List>
         </Link>

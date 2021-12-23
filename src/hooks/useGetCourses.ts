@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BackendService } from '../services/backend';
 
 export const useGetCourses = () => {
-  const [courses, setCourses] = React.useState([]);
+  const [courses, setCourses] = React.useState(undefined);
   useEffect(() => {
     const backendService = new BackendService();
     backendService.getCourses()

@@ -2,6 +2,13 @@
   display: flex;
   max-height: 100%;
   align-items: center;
+  flex-direction: column;
+}
+
+.RegisterTitle {
+  color: aliceblue;
+  margin-top: 5em;
+  margin-bottom: 1.5em;
 }
 
 .RegisterCredentials {
@@ -9,4 +16,5 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 30%;
+  min-width: 100%;
 }

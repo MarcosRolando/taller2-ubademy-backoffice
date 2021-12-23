@@ -1,8 +1,8 @@
 import React from "react";
 import { MyWindow } from "../components/MyWindow";
 import { TransactionsList } from "../components/TransactionList";
-import '../styles/Users.css';
 import { useLocation } from "react-router";
+import '../styles/Transactions.css';
 
 const Transactions = () => {
   const { state } = useLocation();
@@ -10,7 +10,7 @@ const Transactions = () => {
 
   return (
     <MyWindow>
-      <div className='Transactions'>
+      <div className='TransactionsPage'>
         <TransactionsList filter={filter}/>
       </div>
     </MyWindow>

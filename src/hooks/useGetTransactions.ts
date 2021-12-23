@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BackendService } from '../services/backend';
 
 export const useGetTransactions = (filter: any) => {
-  const [transactions, setTransactions] = React.useState([]);
+  const [transactions, setTransactions] = React.useState(undefined);
   useEffect(() => {
     const backendService = new BackendService();
     backendService.getTransactions(filter)

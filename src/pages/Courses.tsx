@@ -1,7 +1,7 @@
 import React from "react";
 import { MyWindow } from "../components/MyWindow";
 import { CoursesList } from "../components/Courses";
-import '../styles/Users.css';
+import '../styles/Courses.css';
 
 const Courses = () => {
   return (

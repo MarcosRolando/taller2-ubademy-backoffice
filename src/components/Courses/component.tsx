@@ -7,7 +7,9 @@ import MenuItem from '@mui/material/MenuItem';
 export const CoursesList = ({ courses, subFilter, typeFilter, onSubFilterChange, onTypeFilterChange, courseTypes, subscriptionTypes, countries  }: any) => {
   return (
     <div className='CoursesList'>
-
+      <h1 className='CoursesTitle'>
+        Courses
+      </h1>
       <div className='CoursesFilters'>
         <div className='Filter'>
           <p className='FilterText'>

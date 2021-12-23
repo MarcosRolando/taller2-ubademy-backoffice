@@ -5,8 +5,8 @@ import logo from '../ubademy-logo.png';
 import { useNavigate } from "react-router";
 import { COURSES_ROUTE } from "../routePaths";
 import colors from "../colors";
-import '../styles/Login.css';
 import { useLogin } from "../hooks/useLogin";
+import '../styles/Login.css';
 
 export default function Login() {
   let navigate = useNavigate();

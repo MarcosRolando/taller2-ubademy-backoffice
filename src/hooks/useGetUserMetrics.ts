@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BackendService } from '../services/backend';
 
 export const useGetUserMetrics = () => {
-  const [userMetrics, setUserMetrics] = React.useState({});
+  const [userMetrics, setUserMetrics] = React.useState(undefined);
 
   useEffect(() => {
     const backendService = new BackendService();

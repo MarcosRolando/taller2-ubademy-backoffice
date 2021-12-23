@@ -1,26 +1,19 @@
 .Transaction {
   display: flex;
-  min-width: 40em;
-  }
+}
 
-  .Sender {
-    margin-left: 0em;
-    width: 14.3em;
-  }
-  
-  .Receiver{
-    margin-left: 1em;
-    width: 15em;
+.Sender {
+  flex: 1;
+}
 
-  }
+.Receiver{
+  flex: 1;
+}
 
-  .Amount {
-    margin-left: 1em;
-    width: 6em;
-  }
+.Amount {
+  flex: 1;
+}
 
-  .Date {
-    margin-left: 8em;
-  }
-
-
+.Date {
+  flex: 1;
+}

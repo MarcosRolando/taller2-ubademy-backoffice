@@ -1,15 +1,13 @@
 import React from "react";
 import { MyWindow } from "../components/MyWindow";
-//import { TransactionsList } from "../components/TransactionList";
-//import '../styles/Users.css';
-//import { useLocation } from "react-router";
-import { UserMetrics } from "../components/UserMetrics"
+import { UserMetrics } from "../components/UserMetrics";
+import '../styles/UserMetrics.css';
 
 const UserMetricsPage = () => {
 
   return (
     <MyWindow>
-      <div className='UserMetrics'>
+      <div className='UserMetricsPage'>
         <UserMetrics />
       </div>
     </MyWindow>

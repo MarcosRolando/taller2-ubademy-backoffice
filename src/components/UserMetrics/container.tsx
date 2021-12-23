@@ -6,7 +6,7 @@ import { UserMetrics } from './component';
 export const UserMetricsContainer = () => {
   const { userMetrics } = useGetUserMetrics();
 
-  if (Object.keys(userMetrics).length === 0) {
+  if (userMetrics === undefined) {
     return (
       <CircularProgress size={60} style={{marginTop: '10em'}} />
     );

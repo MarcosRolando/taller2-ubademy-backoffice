@@ -16,7 +16,7 @@ export const CoursesListContainer = () => {
       (typeFilter === "None" || course.course_type === typeFilter));
   }
 
-  if (courses.length === 0) {
+  if (courses === undefined) {
     return (
       <CircularProgress size={60} style={{marginTop: '10em'}} />
     );
