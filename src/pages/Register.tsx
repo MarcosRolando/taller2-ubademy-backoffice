@@ -73,6 +73,9 @@ const Register = () => {
   return (
     <MyWindow>
       <div className='Register'>
+        <h1 className='RegisterTitle'>
+          Register new admin
+        </h1>
         <div className='RegisterCredentials'>
           <Input 
             placeholder={email.placeholder}

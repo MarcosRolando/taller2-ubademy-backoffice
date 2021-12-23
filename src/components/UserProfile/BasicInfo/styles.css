@@ -1,6 +1,5 @@
 .BasicInfo {
   display: flex;
-  max-height: 25%;
   max-width: 100%;
   flex-direction: column;
 }

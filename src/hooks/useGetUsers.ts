@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BackendService } from '../services/backend';
 
 export const useGetUsers = () => {
-  const [users, setUsers] = React.useState([]);
+  const [users, setUsers] = React.useState(undefined);
   useEffect(() => {
     const backendService = new BackendService();
     backendService.getUsers()

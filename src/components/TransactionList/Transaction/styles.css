@@ -1,0 +1,19 @@
+.Transaction {
+  display: flex;
+}
+
+.Sender {
+  flex: 1;
+}
+
+.Receiver{
+  flex: 1;
+}
+
+.Amount {
+  flex: 1;
+}
+
+.Date {
+  flex: 1;
+}
